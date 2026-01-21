@@ -970,17 +970,48 @@ function updateModalTimer(){
 setInterval(updateModalTimer,60000);
 updateModalTimer();
 // Detecta inatividade e exibe modal após 3s
-let lastActivity = Date.now();
-function resetModalTimer(){ lastActivity = Date.now(); }
-document.addEventListener('mousemove',resetModalTimer);
-document.addEventListener('keydown',resetModalTimer);
-document.addEventListener('scroll',resetModalTimer);
-document.addEventListener('click',resetModalTimer);
-setInterval(function(){
-  if(Date.now()-lastActivity>3000 && document.getElementById('modal-campeao').style.display!=='flex'){
-    showModalCampeao();
+</script>
+<script>
+// ===== CONTROLE DE MODAL (ABRE UMA VEZ POR SESSÃO) =====
+const MODAL_KEY = 'modal_campeao_exibido';
+
+function showModalCampeao(){
+  const modal = document.getElementById('modal-campeao');
+  if(!modal) return;
+
+  modal.style.display = 'flex';
+  sessionStorage.setItem(MODAL_KEY, 'true');
+
+  // carrossel interno
+  modalInterval = setInterval(function(){
+    modalIdx = (modalIdx+1)%modalImgs.length;
+    var img = document.querySelector('.modal-img');
+    img.style.opacity=0;
+    setTimeout(function(){
+      img.src = modalImgs[modalIdx];
+      img.style.opacity=1;
+    },350);
+  }, 1800);
+}
+
+function closeModalCampeao(){
+  const modal = document.getElementById('modal-campeao');
+  if(!modal) return;
+
+  modal.style.display = 'none';
+  clearInterval(modalInterval);
+  sessionStorage.setItem(MODAL_KEY, 'true');
+}
+
+document.getElementById('close-modal').onclick = closeModalCampeao;
+
+// ===== ABRE O MODAL APENAS UMA VEZ =====
+window.addEventListener('DOMContentLoaded', function(){
+  if(!sessionStorage.getItem(MODAL_KEY)){
+    setTimeout(showModalCampeao, 4000); // abre após 4s
   }
-},1000);
+});
+</script>
 </script>
 
 </body>
