@@ -51,11 +51,11 @@ body{
   padding-top:80px;
 }
 .header img{
-  height:90px;
-  max-width:300px;
+  height:55px;
+  width:auto;
+  max-width:240px;
+  object-fit:contain;
   margin-bottom:4px;
-  animation:logoPop .8s;
-  filter:drop-shadow(0 4px 18px #1F4E7940);
 }
 .menu{
   display:flex;
@@ -91,13 +91,12 @@ body{
   width:100%;
   max-width:580px;
   max-height:140px;
-  object-fit:cover;
+  object-fit:contain;background:#f4f7fb;
   display:block;
   margin:0 auto 0 auto;
   border-radius:0 0 12px 12px;
   box-shadow:0 2px 8px #b3d1f2;
-  opacity:0;
-  transition:opacity .7s;
+  opacity:1;
 }
 .banner.show{
   opacity:1;
@@ -220,7 +219,7 @@ body{
 .card img{
   width:100%;
   height:120px;
-  object-fit:cover;
+  object-fit:contain;background:#f4f7fb;
   margin-bottom:10px;
   align-self:center;
   border-radius:10px;
@@ -330,7 +329,7 @@ footer a:hover{ color:#fff; }
   100% { transform: scale(1.08); }
 }
 @keyframes logoPop {
-  0% { transform: scale(0.7) rotate(-8deg); opacity:0; }
+  0% { transform: scale(0.7) rotate(-8deg); opacity:1; }
   60% { transform: scale(1.1) rotate(2deg); opacity:1; }
   100% { transform: scale(1) rotate(0); }
 }
@@ -340,7 +339,7 @@ footer a:hover{ color:#fff; }
   animation:fadeInUp .7s cubic-bezier(.23,1.01,.32,1);
 }
 @keyframes fadeInUp {
-  from { opacity:0; transform:translateY(30px); }
+  from { opacity:1; transform:translateY(30px); }
   to { opacity:1; transform:translateY(0); }
 }
 .card, .section, .banner, .menu a, .btn, .catalogo img, .catalogo a.btn-cat, .whatsapp-float {
@@ -389,7 +388,7 @@ footer a:hover{ color:#fff; }
 .catalogo img{
   width:220px;
   height:310px;
-  object-fit:cover;
+  object-fit:contain;background:#f4f7fb;
   border-radius:18px;
   box-shadow:0 4px 24px #b3d1f2;
   margin-bottom:18px;
@@ -498,8 +497,7 @@ footer a:hover{ color:#fff; }
   position:absolute;
   top:0;left:0;width:100%;height:100%;
   object-fit:contain;
-  opacity:0;
-  transition:opacity .5s;
+  opacity:1;
   z-index:1;
 }
 .carousel-produto .img-produto.active,
@@ -568,7 +566,7 @@ footer a:hover{ color:#fff; }
 #modal-campeao .modal-img{
   width:220px;
   height:160px;
-  object-fit:cover;
+  object-fit:contain;background:#f4f7fb;
   border-radius:12px;
   box-shadow:0 2px 12px #FFD700;
   transition:opacity .7s;
@@ -577,27 +575,6 @@ footer a:hover{ color:#fff; }
 </head>
 
 <body>
-
-
-<img
-  src="https://mala-direta.netlify.app/Imagens/Arames/Fitilho%20pl%C3%A1stico%20(PP)%20para%20amarra%C3%A7%C3%A3o.png"
-  alt="Fitilho plástico (PP) para amarração"
-  width="600"
-  style="display:block;border:0;max-width:100%;margin:0 auto;">
-
-
-<img
-  src="https://mala-direta.netlify.app/Imagens/Arames/Arame%20galvanizado%20para%20lacres%20(2%20ou%203%20fios).png"
-  alt="Arame galvanizado para lacres (2 ou 3 fios)"
-  width="600"
-  style="display:block;border:0;max-width:100%;margin:0 auto;">
-
-
-<img
-  src="https://mala-direta.netlify.app/Imagens/Arames/Amarrilho%20-%20Fecho%20de%20Arame%20(Twist%20Ties).png"
-  alt="Amarrilho – Fecho de Arame (Twist Ties)"
-  width="600"
-  style="display:block;border:0;max-width:100%;margin:0 auto;">
 
 <div class="container">
 
@@ -614,32 +591,41 @@ footer a:hover{ color:#fff; }
   </div>
 
   
-    <img src="https://mala-direta.netlify.app/Imagens/Banner.png" class="banner"
+    <img src="https://mala-direta.netlify.app/Imagens/Banner.png" class="banner" style="cursor:pointer;"
       onclick="window.open('https://www.zenithlacres.com.br','_blank')">
 
-  
-  
+  <!-- LACRES PLÁSTICOS -->
+  <div class="section" id="plastico">
+    <h2>🔒 Lacres Plásticos</h2>
+    <div class="carousel-wrapper">
+      <button class="arrow left" onclick="moveCarousel('plastico-carousel',-1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20esquerda.png" alt="anterior"></button>
+      <div class="carousel" id="plastico-carousel">
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/Lacre%20de%20Sacola%20%E2%80%94%20Zni.png" alt="Lacre de Sacola Zni"></a><h3>Lacre de Sacola Zni</h3><p>Para lacração de sacolas</p><div class="stars">4,9 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/escada-alta-es.png" alt="Escada Alta"></a><h3>Escada Alta</h3><p>Para caixas e contêineres</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/ancora.png" alt="Âncora"></a><h3>Lacre Âncora</h3><p>Segurança em caixas e bags</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/dupla-trava-dt.png" alt="Dupla Trava"></a><h3>Dupla Trava DT</h3><p>Dupla proteção inviolável</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/espinha-de-peixe.png" alt="Espinha de Peixe"></a><h3>Espinha de Peixe</h3><p>Alta resistência à tração</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/anel-extintor.png" alt="Anel Extintor"></a><h3>Anel Extintor</h3><p>Normatizado para extintores</p><div class="stars">4,9 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/lacre-caixas-alc.png" alt="Lacre Caixas"></a><h3>Lacre Caixas ALC</h3><p>Para lacração de caixas</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/lacre-tag-autenticidade.png" alt="Lacre Tag"></a><h3>Lacre Tag Autenticidade</h3><p>Identificação e autenticidade</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/trava-anel.png" alt="Trava Anel"></a><h3>Trava Anel</h3><p>Fácil aplicação e remoção</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/aplicador-lacre-sacola.png" alt="Aplicador Lacre Sacola"></a><h3>Aplicador Sacola</h3><p>Agiliza lacração de sacolas</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/ZLS%20TM%2035%20%E2%80%94%20Trava%20Met%C3%A1lica%20(TM).png" alt="ZLS TM 35"></a><h3>ZLS TM 35</h3><p>Trava Metálica resistente</p><div class="stars">4,9 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+      </div>
+      <button class="arrow right" onclick="moveCarousel('plastico-carousel',1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20direita.png" alt="próximo"></button>
+    </div>
+  </div>
+
+  <!-- LACRES METÁLICOS -->
   <div class="section" id="metalico">
-    <h2 style="display:flex;align-items:center;gap:12px;"><img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png" style="width:32px;height:32px;">Lacres Metálicos</h2>
+    <h2 style="display:flex;align-items:center;gap:12px;">Lacres Metálicos</h2>
     <div class="carousel-wrapper">
       <button class="arrow left" onclick="moveCarousel('metalico-carousel',-1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20esquerda.png"></button>
       <div class="carousel" id="metalico-carousel">
         
         <div class="card">
           <span class="badge-campeao">🏆 Destaque Zenith</span>
-          <div class="carousel-img" id="carousel-sextavado">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png" alt="Lacre Sextavado" class="img-sextavado">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Amarelo%201.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Amarelo%202.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%201.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%202.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%201.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%202.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%203.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%204.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%203.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-            <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%204.png" alt="Lacre Sextavado" class="img-sextavado" style="display:none;">
-          </div>
+          <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png" alt="Lacre Sextavado">
           <h3>Lacre Sextavado</h3>
           <p>Robustez máxima, segurança industrial</p>
           <div class="stars">5,0 estrelas</div>
@@ -660,28 +646,28 @@ footer a:hover{ color:#fff; }
 
   
   <div class="section" id="abracadeiras">
-    <h2 style="display:flex;align-items:center;gap:12px;"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20de%20Nylon%20%E2%80%94%20Padr%C3%A3o.png" style="width:32px;height:32px;">Abraçadeiras</h2>
+    <h2 style="display:flex;align-items:center;gap:12px;">Abraçadeiras</h2>
     <div class="carousel-wrapper">
       
-      <button class="arrow left" onclick="moveCarousel('abracadeiras-carousel',-1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20esquerda.png" alt="Seta esquerda" width="80" style="display:block;border:0;"></button>
+      <button class="arrow left" onclick="moveCarousel('abracadeiras-carousel',-1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20esquerda.png" alt="Seta esquerda"></button>
       <div class="carousel" id="abracadeiras-carousel">
         
-        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20de%20Nylon%20%E2%80%94%20Padr%C3%A3o.png" alt="Abraçadeira de Nylon – Padrão" width="600" style="display:block;border:0;max-width:100%;margin:0 auto;"></a><h3>Abraçadeira Nylon</h3><p>Alta resistência, diversas medidas</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20de%20Nylon%20%E2%80%94%20Padr%C3%A3o.png" alt="Abraçadeira de Nylon – Padrão"></a><h3>Abraçadeira Nylon</h3><p>Alta resistência, diversas medidas</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
         
-        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20Identific%C3%A1vel.png" alt="Abraçadeira Identificável" width="600" style="display:block;border:0;max-width:100%;margin:0 auto;"></a><h3>Abraçadeira Identificável</h3><p>Personalize com sua marca</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20Identific%C3%A1vel.png" alt="Abraçadeira Identificável"></a><h3>Abraçadeira Identificável</h3><p>Personalize com sua marca</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
         
-        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20Met%C3%A1lica.png" alt="Abraçadeira Metálica" width="600" style="display:block;border:0;max-width:100%;margin:0 auto;"></a><h3>Abraçadeira Metálica</h3><p>Resistência máxima, uso industrial</p><div class="stars">4,9 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20Met%C3%A1lica.png" alt="Abraçadeira Metálica"></a><h3>Abraçadeira Metálica</h3><p>Resistência máxima, uso industrial</p><div class="stars">4,9 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
         
-        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/ZFIX%20%E2%80%94%20Base%20Adesiva.png" alt="ZFIX – Base Adesiva" width="600" style="display:block;border:0;max-width:100%;margin:0 auto;"></a><h3>ZFIX Base Adesiva</h3><p>Fixação prática para cabos</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
+        <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/ZFIX%20%E2%80%94%20Base%20Adesiva.png" alt="ZFIX – Base Adesiva"></a><h3>ZFIX Base Adesiva</h3><p>Fixação prática para cabos</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://www.zenithlacres.com.br" target="_blank">Cotar Agora</a></div></div>
       </div>
       
-      <button class="arrow right" onclick="moveCarousel('abracadeiras-carousel',1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20direita.png" alt="Seta direita" width="80" style="display:block;border:0;"></button>
+      <button class="arrow right" onclick="moveCarousel('abracadeiras-carousel',1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20direita.png" alt="Seta direita"></button>
     </div>
   </div>
 
   
   <div class="section" id="cadeados">
-    <h2 style="display:flex;align-items:center;gap:12px;"><img src="https://mala-direta.netlify.app/Imagens/Cadeados/Cadeado%20Tradicional%20(lat%C3%A3o).png" style="width:32px;height:32px;">Cadeados</h2>
+    <h2 style="display:flex;align-items:center;gap:12px;">Cadeados</h2>
     <div class="carousel-wrapper">
       <button class="arrow left" onclick="moveCarousel('cadeados-carousel',-1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20esquerda.png"></button>
       <div class="carousel" id="cadeados-carousel">
@@ -699,7 +685,7 @@ footer a:hover{ color:#fff; }
 
   
   <div class="section" id="fitas">
-    <h2 style="display:flex;align-items:center;gap:12px;"><img src="https://mala-direta.netlify.app/Imagens/Fitas/Fita%20adesiva.png" style="width:32px;height:32px;">Fitas</h2>
+    <h2 style="display:flex;align-items:center;gap:12px;">Fitas</h2>
     <div class="carousel-wrapper">
       <button class="arrow left" onclick="moveCarousel('fitas-carousel',-1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20esquerda.png"></button>
       <div class="carousel" id="fitas-carousel">
@@ -720,7 +706,7 @@ footer a:hover{ color:#fff; }
 
   
   <div class="section" id="malotes">
-    <h2 style="display:flex;align-items:center;gap:12px;"><img src="https://mala-direta.netlify.app/Imagens/Malotes%2C%20pastas%20e%20bolsas/Malote%20Correio.png" style="width:32px;height:32px;">Malotes, Pastas e Bolsas</h2>
+    <h2 style="display:flex;align-items:center;gap:12px;">Malotes, Pastas e Bolsas</h2>
     <div class="carousel-wrapper">
       <button class="arrow left" onclick="moveCarousel('malotes-carousel',-1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20esquerda.png"></button>
       <div class="carousel" id="malotes-carousel">
@@ -737,7 +723,7 @@ footer a:hover{ color:#fff; }
 
   
   <div class="section" id="maquinas">
-    <h2 style="display:flex;align-items:center;gap:12px;"><img src="https://mala-direta.netlify.app/Imagens/M%C3%A1quinas/M%C3%A1quina%20lacradora%20quadrada.png" style="width:32px;height:32px;">Máquinas</h2>
+    <h2 style="display:flex;align-items:center;gap:12px;">Máquinas</h2>
     <div class="carousel-wrapper">
       <button class="arrow left" onclick="moveCarousel('maquinas-carousel',-1)"><img src="https://mala-direta.netlify.app/Imagens/Abra%C3%A7adeiras/seta%20esquerda.png"></button>
       <div class="carousel" id="maquinas-carousel">
@@ -828,7 +814,7 @@ Conheça todos os nossos <span style="color:#1F4E79;font-weight:700;">500+ produ
     <span style="position:absolute;top:18px;right:18px;font-size:28px;cursor:pointer;color:#1F4E79;font-weight:700;" id="close-modal">×</span>
     <div id="modal-carousel" style="width:220px;height:160px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;">
       <a href="https://www.zenithlacres.com.br/" target="_blank" id="modal-link">
-        <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png" alt="Lacre Sextavado" class="modal-img" style="width:220px;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px #FFD700;transition:opacity .7s;">
+        <img src="https://mala-direta.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png" alt="Lacre Sextavado" class="modal-img" style="width:220px;height:160px;object-fit:contain;background:#f4f7fb;border-radius:12px;box-shadow:0 2px 12px #FFD700;transition:opacity .7s;">
       </a>
     </div>
     <div style="margin:18px 0 8px 0;font-size:18px;font-weight:700;color:#1F4E79;display:flex;align-items:center;gap:8px;">🏆 Destaque Zenith</div>
