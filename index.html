@@ -2,853 +2,547 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Zenith Lacres | Catálogo 2026</title>
-<link rel="icon" type="image/png" href="https://zenith-lacres-catalogo.netlify.app/Imagens/Logo%20zenith.png?v=3">
-
-<style>
-
-
-body{
-  margin:0;
-  font-family:'Segoe UI',Arial,Helvetica,sans-serif;
-  background:linear-gradient(135deg,#e6f0fa 0%,#e3eaf6 100%);
-  color:#222;
-}
-
-.container{
-  width:100%;
-  max-width:580px;   
-  margin:24px auto;
-  background:#fff;
-  border-radius:0;
-  box-shadow:none;
-  overflow:hidden;
-}
-
-
-.header{
-  position:fixed;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:580px;
-  z-index:1000;
-  background:#1F4E79;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  padding:4px 0 0 0;
-  border-bottom:4px solid #FFD700;
-  box-shadow:0 2px 8px #0002;
-  min-width:0;
-  transition:top .4s, box-shadow .3s;
-  position:fixed;
-}
-.header.hide{
-  top:-120px;
-}
-body{
-  padding-top:110px;
-}
-.header img{
-  height:72px;
-  width:auto;
-  max-width:280px;
-  object-fit:contain;
-  margin-bottom:4px;
-  filter:brightness(0) invert(1);
-}
-.menu{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-bottom:0;
-  width:100%;
-  justify-content:center;
-  background:none;
-}
-.menu a{
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  font-size:14px;
-  letter-spacing:0.5px;
-  padding:6px 12px;
-  border-radius:6px;
-  transition:.2s;
-  white-space:nowrap;
-  max-width:100px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  display:inline-block;
-}
-.menu a:hover{
-  background:#FFD700;
-  color:#1F4E79;
-}
-
-
-.banner{
-  width:100%;
-  max-width:580px;
-  max-height:140px;
-  object-fit:contain;background:#f4f7fb;
-  display:block;
-  margin:0 auto 0 auto;
-  border-radius:0 0 12px 12px;
-  box-shadow:0 2px 8px #b3d1f2;
-  opacity:1;
-}
-.banner.show{
-  opacity:1;
-}
-
-
-.section{
-  padding:36px 18px 0;
-}
-
-.section h2{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  color:#1F4E79;
-  font-size:24px;
-  margin-bottom:28px;
-  letter-spacing:0.5px;
-}
-
-
-.section[id^="metalico"] {
-  background:linear-gradient(90deg,#fff 80%,#fafdff 100%);
-  border-left:8px solid #FFD700;
-}
-.section[id^="abracadeiras"] {
-  background:linear-gradient(90deg,#fff 80%,#e3f3ff 100%);
-  border-left:8px solid #1F4E79;
-}
-.section[id^="cadeados"] {
-  background:linear-gradient(90deg,#fff 80%,#fff7e3 100%);
-  border-left:8px solid #FF4E4E;
-}
-.section[id^="fitas"] {
-  background:linear-gradient(90deg,#fff 80%,#fffbe6 100%);
-  border-left:8px solid #FFD700;
-}
-.section[id^="malotes"] {
-  background:linear-gradient(90deg,#fff 80%,#e6f7fa 100%);
-  border-left:8px solid #25D366;
-}
-.section[id^="maquinas"] {
-  background:linear-gradient(90deg,#fff 80%,#e6fff7 100%);
-  border-left:8px solid #1F4E79;
-}
-
-
-
-.cards-grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:16px;
-  justify-content:center;
-  padding:10px 6px 20px;
-}
-
-.badge-campeao{
-  position:absolute;
-  top:10px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#FFD700;
-  color:#16263a;
-  font-weight:700;
-  padding:6px 22px;
-  border-radius:16px;
-  font-size:15px;
-  box-shadow:0 2px 8px #b3d1f2;
-  white-space:nowrap;
-  z-index:2;
-  min-width:120px;
-  text-align:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-
-
-.card{
-  min-width:230px;
-  max-width:230px;
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 2px 16px #b3d1f2;
-  padding:18px 16px 24px 16px;
-  text-align:center;
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:space-between;
-  height:370px;
-  margin-bottom:18px;
-  box-sizing:border-box;
-}
-.card img{
-  width:100%;
-  height:120px;
-  object-fit:contain;background:#f4f7fb;
-  margin-bottom:10px;
-  align-self:center;
-  border-radius:10px;
-}
-.card h3{
-  color:#1F4E79;
-  font-size:16px;
-  margin:8px 0 4px;
-  min-height:28px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.card p{
-  font-size:13px;
-  margin:0 0 8px;
-  min-height:24px;
-  color:#222;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-.stars{
-  color:#FFD700;
-  font-size:17px;
-  margin-bottom:8px;
-
-}
-.card .promo{
-  margin-bottom:6px;
-  color:#FFD700;
-  font-weight:700;
-  font-size:13px;
-}
-.card .codigo{
-  margin-bottom:6px;
-  color:#1F4E79;
-  font-size:13px;
-}
-.btns{
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  flex:1;
-  width:100%;
-}
-.btn{
-  padding:10px 20px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:14px;
-  background:#1F4E79;
-  color:#fff;
-  box-shadow:0 2px 8px #b3d1f2;
-  border:none;
-  transition:.2s;
-  margin-top:auto;
-  margin-bottom:0;
-  display:inline-block;
-  width:100%;
-  max-width:150px;
-}
-.btn:hover{
-  background:#FFD700;
-  color:#1F4E79;
-}
-
-
-footer{
-  background:#16263a;
-  color:#fff;
-  text-align:center;
-  padding:42px 24px;
-}
-footer img{ height:90px; max-width:280px !important; margin-bottom:10px; }
-footer a{
-  color:#FFD700;
-  text-decoration:none;
-  margin:0 8px;
-}
-footer a:hover{ color:#fff; }
-
-
-.wpp-header{
-  position:absolute;
-  right:10px;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:1100;
-}
-.wpp-header img{
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  box-shadow:0 2px 10px #25D36699;
-  display:block;
-  filter:none;
-  transition:transform .2s;
-}
-.wpp-header img:hover{
-  transform:scale(1.12);
-}
-
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.btn,.menu a{transition:background .2s,color .2s;}
-.card{transition:box-shadow .2s,transform .2s;}
-.card:hover{box-shadow:0 6px 20px rgba(31,78,121,.18);transform:translateY(-3px);}
-.btn:hover{background:#FFD700;color:#1F4E79;}
-.menu a:hover{background:#FFD700;color:#1F4E79;}
-
-
-.motivos{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:32px;
-  margin:48px 0 32px 0;
-}
-.motivo{
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 2px 12px #b3d1f2;
-  padding:24px 18px;
-  min-width:180px;
-  max-width:220px;
-  text-align:center;
-  font-size:16px;
-  color:#222;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  animation:fadeInUp .7s cubic-bezier(.23,1.01,.32,1);
-}
-.motivo .icon{
-  font-size:32px;
-  margin-bottom:8px;
-}
-
-
-.catalogo{
-  text-align:center;
-  padding:48px 0 32px 0;
-}
-.catalogo img{
-  width:220px;
-  height:310px;
-  object-fit:contain;background:#f4f7fb;
-  border-radius:18px;
-  box-shadow:0 4px 24px #b3d1f2;
-  margin-bottom:18px;
-  border:4px solid #fff;
-}
-.catalogo a.btn-cat{
-  display:inline-block;
-  margin-top:18px;
-  background:#1F4E79;
-  color:#fff;
-  padding:14px 36px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:16px;
-  box-shadow:0 2px 8px #b3d1f2;
-  transition:.2s;
-}
-.catalogo a.btn-cat:hover{
-  background:#FFD700;
-  color:#1F4E79;
-}
-.badge-campeao{
-  position:absolute;
-  top:10px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#FFD700;
-  color:#16263a;
-  font-weight:700;
-  padding:6px 22px;
-  border-radius:16px;
-  font-size:15px;
-  box-shadow:0 2px 8px #b3d1f2;
-  white-space:nowrap;
-  z-index:2;
-  min-width:120px;
-  text-align:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-
-
-#modal-promo{
-  position:fixed;
-  top:0;left:0;width:100vw;height:100vh;
-  background:rgba(31,78,121,0.85);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:20000;
-  animation:fadeIn .5s;
-}
-#modal-promo .modal-content{
-  background:#fff;
-  border-radius:24px;
-  box-shadow:0 8px 32px #1F4E7940;
-  padding:38px 32px 32px 32px;
-  max-width:340px;
-  text-align:center;
-  position:relative;
-  animation:fadeInUp .7s cubic-bezier(.23,1.01,.32,1);
-}
-#modal-promo .close-modal{
-  position:absolute;
-  top:12px;right:18px;
-  font-size:28px;
-  color:#1F4E79;
-  background:none;
-  border:none;
-  cursor:pointer;
-  font-weight:bold;
-  transition:.2s;
-}
-#modal-promo .close-modal:hover{color:#FF4E4E;}
-#modal-promo img{
-  width:110px;
-  margin-bottom:18px;
-}
-#modal-promo .badge-campeao{
-  position:static;
-  margin-bottom:8px;
-  top:auto;left:auto;transform:none;
-}
-.carousel-produto{
-  width:210px;
-  height:210px;
-  position:relative;
-  margin:0 auto 10px auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  z-index:1;
-}
-#modal-promo .carousel-produto{
-  width:260px !important;
-  height:260px !important;
-  margin:0 auto 18px auto !important;
-}
-.carousel-produto .img-produto,
-.carousel-produto .img-produto-modal{
-  position:absolute;
-  top:0;left:0;width:100%;height:100%;
-  object-fit:contain;
-  opacity:1;
-  z-index:1;
-}
-.carousel-produto .img-produto.active,
-.carousel-produto .img-produto-modal.active{
-  opacity:1;
-  z-index:2;
-}
-.badge-campeao-out{
-  background:#ffd700;
-  color:#222;
-  font-weight:bold;
-  border-radius:18px;
-  padding:6px 22px 6px 14px;
-  font-size:1.1em;
-  box-shadow:0 2px 8px #0002;
-  display:flex;
-  align-items:center;
-  gap:6px;
-  border:2px solid #fff;
-  min-height:38px;
-}
-
-
-#modal-campeao{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100vw;
-  height:100vh;
-  background:rgba(31,78,121,0.85);
-  z-index:99999;
-  align-items:center;
-  justify-content:center;
-}
-#modal-campeao > div{
-  background:#fff;
-  border-radius:18px;
-  box-shadow:0 8px 32px #1F4E7999;
-  padding:32px 24px;
-  max-width:340px;
-  width:90vw;
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-#modal-campeao .close-modal{
-  position:absolute;
-  top:18px;
-  right:18px;
-  font-size:28px;
-  cursor:pointer;
-  color:#1F4E79;
-  font-weight:700;
-}
-#modal-campeao #modal-carousel{
-  width:220px;
-  height:160px;
-  overflow:hidden;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-#modal-campeao .modal-img{
-  width:220px;
-  height:160px;
-  object-fit:contain;background:#f4f7fb;
-  border-radius:12px;
-  box-shadow:0 2px 12px #FFD700;
-  transition:opacity .7s;
-}
-</style>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Zenith Lacres - Catalogo 2026</title>
 </head>
+<body style="margin:0;padding:0;background:#e6f0fa;font-family:Arial,Helvetica,sans-serif;">
 
-<body>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#e6f0fa;">
+<tr><td align="center" style="padding:20px 0;">
 
-<div class="container">
+<table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background:#ffffff;">
 
-  
-  <div class="header">
-    <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Logo%20zenith.png?v=3" alt="Zenith Lacres" style="display:block;border:0;">
-    <nav class="menu">
-      <a href="#metalico">Metálicos</a>
-      <a href="#abracadeiras">Abraçadeiras</a>
-      <a href="#plastico">Plásticos</a>
-      <a href="#cadeados">Cadeados</a>
-      <a href="#fitas">Fitas</a>
-    </nav>
-    <a class="wpp-header" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1,%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">
-      <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/icone%20wpp.png" alt="WhatsApp Zenith">
-    </a>
-  </div>
+  <!-- HEADER -->
+  <tr>
+    <td align="center" style="background:#1F4E79;padding:16px 32px 0 32px;border-bottom:4px solid #FFD700;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td align="center" style="padding-bottom:12px;">
+            <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Logo%20zenith.png" alt="Zenith Lacres" width="150" height="75"
+              style="display:block;border:0;filter:brightness(0) invert(1);">
+          </td>
+          <td align="right" style="padding-bottom:12px;">
+            <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20produtos%20Zenith%20-%20codigo%20ZENITH2026" target="_blank">
+              <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/icone%20wpp.png" alt="WhatsApp" width="48" height="48"
+                style="display:block;border:0;border-radius:50%;">
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-  
-    <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Banner.png" class="banner" style="cursor:pointer;"
-      onclick="window.open('https://www.zenithlacres.com.br','_blank')">
-
-  <!-- LACRES METÁLICOS -->
-  <div class="section" id="metalico">
-    <h2 style="display:flex;align-items:center;gap:12px;">Lacres Metálicos</h2>
-    <div class="cards-grid">
-  <div class="card">
-          <span class="badge-campeao">🏆 Destaque Zenith</span>
-          <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png" alt="Lacre Sextavado">
-          <h3>Lacre Sextavado</h3>
-          <p>Robustez máxima, segurança industrial</p>
-          <div class="stars">5,0 estrelas</div>
-          <div class="promo">Prazo até <span id="promo-timer"></span></div>
-          <div class="codigo">Use o código <b>#ZENITH2026</b> no WhatsApp</div>
-          <div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427" target="_blank">Cotar Agora</a></div>
-        </div>
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/zpino-bolt-seal.png" alt="ZPino Bolt Seal"></a><h3>ZPino Bolt Seal</h3><p>Alta segurança para containers</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-</div>
-  </div>
-
-
-  
-  <div class="section" id="abracadeiras">
-    <h2 style="display:flex;align-items:center;gap:12px;">Abraçadeiras</h2>
-    <div class="cards-grid">
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20de%20Nylon%20%E2%80%94%20Padr%C3%A3o.png" alt="Abraçadeira de Nylon – Padrão"></a><h3>Abraçadeira Nylon</h3><p>Alta resistência, diversas medidas</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20Identific%C3%A1vel.png" alt="Abraçadeira Identificável"></a><h3>Abraçadeira Identificável</h3><p>Personalize com sua marca</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-</div>
-  </div>
-
-  
-  <!-- LACRES PLÁSTICOS -->
-  <div class="section" id="plastico">
-    <h2>Lacres Plásticos</h2>
-    <div class="cards-grid">
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/Lacre%20de%20Sacola%20%E2%80%94%20Zni.png" alt="Lacre de Sacola Zni"></a><h3>Lacre de Sacola Zni</h3><p>Para lacração de sacolas</p><div class="stars">4,9 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/escada-alta-es.png" alt="Escada Alta"></a><h3>Escada Alta</h3><p>Para caixas e contêineres</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-</div>
-  </div>
-
-  <div class="section" id="cadeados">
-    <h2 style="display:flex;align-items:center;gap:12px;">Cadeados</h2>
-    <div class="cards-grid">
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Cadeados/Cadeado%20Tradicional%20(lat%C3%A3o).png" alt="Cadeado Latão"></a><h3>Cadeado Latão</h3><p>Segurança tradicional, várias medidas</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Cadeados/Cadeado%20Bloqueio.png" alt="Cadeado Bloqueio"></a><h3>Cadeado Bloqueio</h3><p>Ideal para bloqueio de energia</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-</div>
-  </div>
-
-  
-  <div class="section" id="fitas">
-    <h2 style="display:flex;align-items:center;gap:12px;">Fitas</h2>
-    <div class="cards-grid">
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Fitas/Fita%20adesiva.png" alt="Fita Adesiva"></a><h3>Fita Adesiva</h3><p>Alta aderência, uso industrial</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Fitas/Fita%20crepe.png" alt="Fita Crepe"></a><h3>Fita Crepe</h3><p>Ideal para pinturas e acabamentos</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-</div>
-  </div>
-
-  
-  <div class="section" id="malotes">
-    <h2 style="display:flex;align-items:center;gap:12px;">Malotes, Pastas e Bolsas</h2>
-    <div class="cards-grid">
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Malotes%2C%20pastas%20e%20bolsas/Malote%20Correio.png" alt="Malote Correio"></a><h3>Malote Correio</h3><p>Transporte seguro de documentos</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Malotes%2C%20pastas%20e%20bolsas/Bolsa%20com%20Z%C3%ADper%20(estilo%20Sacola).png" alt="Bolsa com Zíper"></a><h3>Bolsa com Zíper</h3><p>Estilo sacola, prática e segura</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-</div>
-  </div>
-
-  
-  <div class="section" id="maquinas">
-    <h2 style="display:flex;align-items:center;gap:12px;">Máquinas</h2>
-    <div class="cards-grid">
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/M%C3%A1quinas/M%C3%A1quina%20lacradora%20quadrada.png" alt="Máquina Lacradora Quadrada"></a><h3>Lacradora Quadrada</h3><p>Alta performance, robusta</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-  <div class="card"><a href="https://www.zenithlacres.com.br" target="_blank"><img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/M%C3%A1quinas/M%C3%A1quina%20lacradora%20redonda.png" alt="Máquina Lacradora Redonda"></a><h3>Lacradora Redonda</h3><p>Design compacto, eficiente</p><div class="stars">4,8 estrelas</div><div class="btns"><a class="btn" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1%2C%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">Cotar Agora</a></div></div>
-</div>
-  </div>
-
-  
-  <div style="text-align:center;margin:38px 0 18px 0;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:0.5px;">
-Por que escolher a Zenith? <span style="color:#FFD700;font-weight:800;">Confiança, agilidade e segurança para o seu negócio.</span>
-</div>
-  
-  <div class="motivos">
-    <div class="motivo"><span class="icon">🚚</span>Entrega rápida em todo Brasil</div>
-    <div class="motivo"><span class="icon">🔒</span>Segurança máxima certificada</div>
-    <div class="motivo"><span class="icon">💬</span>Atendimento consultivo e ágil</div>
-    <div class="motivo"><span class="icon">🏆</span>Líder nacional em lacres</div>
-    <div class="motivo"><span class="icon">💳</span>Condições exclusivas para clientes</div>
-  </div>
-  
-  <div style="text-align:center;margin:32px 0 0 0;font-size:18px;font-weight:600;color:#222;">
-Conheça todos os nossos <span style="color:#1F4E79;font-weight:700;">500+ produtos</span> no catálogo completo!
-</div>
-
-  
-  <div class="catalogo">
-    <a href="https://zenith-lacres-catalogo.netlify.app/Imagens/Cat%C3%A1logo%20ZENITH%20capa.jpg" target="_blank">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Cat%C3%A1logo%20ZENITH%20capa.jpg">
-    </a><br>
-    <a class="btn-cat" href="https://zenith-lacres-catalogo.netlify.app/Imagens/Cat%C3%A1logo%20ZENITH.pdf" target="_blank">
-      Acesse o Catálogo Completo (PDF)
-    </a>
-  </div>
-
-  
-  <footer>
-    <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Logo%20zenith.png" alt="Zenith Lacres" width="180" style="display:block;border:0;margin:0 auto 12px auto;"><br>
-    Zenith Lacres - Segurança, padronização e confiança<br><br>
-    <a href="https://www.zenithlacres.com.br" target="_blank">Site</a>
-    <a href="https://api.whatsapp.com/send?phone=551120240427" target="_blank">WhatsApp</a>
-    
-    Endereço: R. Constantino Fusco, 256 - Vila Formosa, São Paulo - SP, 03383-070
-  </footer>
-
-
-
-</div>
-
-
-
-<div id="modal-promo" style="display:none;">
-  <div class="modal-content">
-    <button class="close-modal" onclick="document.getElementById('modal-promo').style.display='none';">&times;</button>
-    <div class="badge-campeao-out" style="margin-bottom:18px;box-shadow:0 4px 18px #ffd70055;min-width:210px;display:flex;justify-content:center;align-items:center;">
-      <span style="font-size:26px;margin-right:8px;">🏆</span> <span style="font-size:17px;font-weight:800;letter-spacing:0.5px;">Destaque Zenith</span>
-    </div>
-    <div class="carousel-produto" id="carousel-sextavado-modal" style="width:260px;height:260px;margin-bottom:18px;">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png" alt="Lacre Sextavado" class="img-produto-modal active">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Amarelo%201.png" alt="Lacre Sextavado Amarelo" class="img-produto-modal">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Amarelo%202.png" alt="Lacre Sextavado Amarelo 2" class="img-produto-modal">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%201.png" alt="Lacre Sextavado Vermelho" class="img-produto-modal">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%202.png" alt="Lacre Sextavado Vermelho 2" class="img-produto-modal">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%201.png" alt="Lacre Sextavado Azul" class="img-produto-modal">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%202.png" alt="Lacre Sextavado Azul 2" class="img-produto-modal">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%203.png" alt="Lacre Sextavado Azul 3" class="img-produto-modal">
-      <img loading="lazy" decoding="async" src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%204.png" alt="Lacre Sextavado Azul 4" class="img-produto-modal">
-    </div>
-    <h3 style="color:#1F4E79;">Lacre Sextavado</h3>
-    <div style="color:#FFD700;font-size:18px;font-weight:700;margin-bottom:8px;">5,0 estrelas</div>
-    <div style="font-size:15px;margin-bottom:12px;">Robustez máxima, segurança industrial, líder absoluto em confiabilidade para grandes operações.</div>
-    <div style="color:#1F4E79;font-size:15px;margin-bottom:12px;">Use o código <b>#ZENITH2026</b> no WhatsApp</div>
-    <a class="btn" href="https://api.whatsapp.com/send?phone=551120240427" target="_blank">Cotar Agora</a>
-  </div>
-</div>
-
-
-<div id="modal-campeao" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(31,78,121,0.85);z-index:99999;align-items:center;justify-content:center;">
-  <div style="background:#fff;border-radius:18px;box-shadow:0 8px 32px #1F4E7999;padding:32px 24px;max-width:340px;width:90vw;position:relative;display:flex;flex-direction:column;align-items:center;">
-    <span style="position:absolute;top:18px;right:18px;font-size:28px;cursor:pointer;color:#1F4E79;font-weight:700;" id="close-modal">×</span>
-    <div id="modal-carousel" style="width:220px;height:160px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;">
-      <a href="https://www.zenithlacres.com.br/" target="_blank" id="modal-link">
-        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png" alt="Lacre Sextavado" class="modal-img" style="width:220px;height:160px;object-fit:contain;background:#f4f7fb;border-radius:12px;box-shadow:0 2px 12px #FFD700;transition:opacity .7s;">
+  <!-- BANNER -->
+  <tr>
+    <td>
+      <a href="https://www.zenithlacres.com.br" target="_blank">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Banner.png" alt="Zenith Lacres" width="600"
+          style="display:block;border:0;width:100%;max-width:600px;">
       </a>
-    </div>
-    <div style="margin:18px 0 8px 0;font-size:18px;font-weight:700;color:#1F4E79;display:flex;align-items:center;gap:8px;">🏆 Destaque Zenith</div>
-    <div style="font-size:15px;color:#222;text-align:center;margin-bottom:8px;">Lacre Sextavado<br>Robustez máxima, segurança industrial</div>
-    <div style="color:#FFD700;font-size:17px;font-weight:700;margin-bottom:8px;">5,0 estrelas</div>
-    <div style="color:#FFD700;font-size:14px;font-weight:700;margin-bottom:4px;">Prazo até <span id="modal-timer"></span></div>
-    <div style="color:#1F4E79;font-size:14px;">Use o código <b>#ZENITH2026</b> no WhatsApp</div>
-  </div>
-</div>
+    </td>
+  </tr>
 
-<script>
-// Header esconde ao descer, aparece ao subir
-let lastScroll = 0;
-window.addEventListener('scroll',function(){
-  const header = document.querySelector('.header');
-  if(window.scrollY > lastScroll && window.scrollY > 80){
-    header.classList.add('hide');
-  }else{
-    header.classList.remove('hide');
-  }
-  lastScroll = window.scrollY;
-});
-// Aplica prazo e código para todos os cards e randomiza as estrelas
-window.addEventListener('DOMContentLoaded',function(){
-  // Notas possíveis (maioria 5.0 e 4.9)
-  const notas = [5.0,5.0,5.0,4.9,4.9,4.9,4.8,4.8];
-  let i = 0;
-  document.querySelectorAll('.card').forEach(function(card){
-    // Badge só no campeão
-    if(card.querySelector('.badge-campeao')){
-      card.querySelector('.badge-campeao').innerHTML = '🏆 Destaque Zenith';
-    }
-    // Prazo/código
-    if(!card.querySelector('.promo')){
-      let promo = document.createElement('div');
-      promo.className = 'promo';
-      promo.innerHTML = 'Prazo até <span id="promo-timer"></span>';
-      card.insertBefore(promo, card.querySelector('.codigo') || card.querySelector('.btns'));
-    }
-    if(!card.querySelector('.codigo')){
-      let cod = document.createElement('div');
-      cod.className = 'codigo';
-      cod.innerHTML = 'Use o código <b>#ZENITH2026</b> no WhatsApp';
-      card.insertBefore(cod, card.querySelector('.btns'));
-    }
-    // Estrelas randomizadas
-    let nota = notas[i%notas.length];
-    i++;
-    let estrelas = nota.toFixed(1).replace('.',',') + ' estrelas';
-    let starsDiv = card.querySelector('.stars');
-    if(starsDiv) starsDiv.innerHTML = estrelas;
-  });
-  // Timer prazo
-  function getPromoDate(){
-    const now=new Date();
-    let day=now.getDay();
-    let daysToThu=(4-day+7)%7;
-    if(daysToThu===0)daysToThu=7;
-    let thu=new Date(now.getFullYear(),now.getMonth(),now.getDate()+daysToThu);
-    thu.setHours(23,59,59,999);
-    return thu;
-  }
-  function updatePromoTimer(){
-    const end=getPromoDate();
-    const now=new Date();
-    let diff=end-now;
-    if(diff<0){document.querySelectorAll('#promo-timer').forEach(e=>e.innerText='Prazo encerrado');return;}
-    let d=Math.floor(diff/864e5),h=Math.floor((diff%864e5)/36e5),m=Math.floor((diff%36e5)/6e4);
-    document.querySelectorAll('#promo-timer').forEach(e=>e.innerText=`${d}d ${h}h ${m}min`);
-  }
-  setInterval(updatePromoTimer,60000);
-  updatePromoTimer();
+  <!-- INTRO -->
+  <tr>
+    <td align="center" style="padding:28px 32px 8px 32px;">
+      <p style="font-size:22px;font-weight:700;color:#1F4E79;margin:0 0 10px 0;text-align:center;">Catalogo Zenith 2026</p>
+      <p style="font-size:14px;color:#444;margin:0;text-align:center;line-height:1.6;">
+        Lacres, abracadeiras, cadeados e muito mais.<br>
+        Use o codigo <strong style="color:#1F4E79;">#ZENITH2026</strong> e garanta condicoes especiais.
+      </p>
+    </td>
+  </tr>
 
-});
+  <!-- BOTAO WPP PRINCIPAL -->
+  <tr>
+    <td align="center" style="padding:20px 32px 8px 32px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20produtos%20Zenith%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#25D366;color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;padding:14px 36px;border-radius:8px;">
+        Cotar pelo WhatsApp
+      </a>
+    </td>
+  </tr>
 
-var modalImgs = [
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Amarelo%201.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Amarelo%202.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%201.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%202.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%201.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%202.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%203.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Azul%204.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%203.png",
-  "https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/Vermelho%204.png"
-];
-var modalIdx = 0;
-var modalInterval;
-// Timer prazo no modal
-function updateModalTimer(){
-  if(!document.getElementById('modal-timer')) return;
-  const now=new Date(),day=now.getDay(),dth=(4-day+7)%7||7;
-  const thu=new Date(now.getFullYear(),now.getMonth(),now.getDate()+dth,23,59,59,999);
-  let diff=thu-now;
-  if(diff<0){document.getElementById('modal-timer').innerText='Prazo encerrado';return;}
-  let d=Math.floor(diff/864e5),h=Math.floor((diff%864e5)/36e5),m=Math.floor((diff%36e5)/6e4);
-  document.getElementById('modal-timer').innerText=`${d}d ${h}h ${m}min`;
-}
-setInterval(updateModalTimer,60000);
-updateModalTimer();
-</script>
-<script>
-// ===== CONTROLE DE MODAL (ABRE UMA VEZ POR SESSÃO) =====
-const MODAL_KEY = 'modal_campeao_exibido';
 
-function showModalCampeao(){
-  const modal = document.getElementById('modal-campeao');
-  if(!modal) return;
+  <!-- LACRES METALICOS -->
+  <tr>
+    <td style="padding:0 16px 0 16px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+        <tr>
+          <td style="background:#1F4E79;padding:10px 16px;border-radius:6px 6px 0 0;">
+            <p style="color:#FFD700;font-size:15px;font-weight:700;margin:0;">Lacres Metalicos</p>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e0e8f4;border-top:none;border-radius:0 0 6px 6px;">
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacre%20Sextavado%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-sextavado.png" alt="Lacre Sextavado" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Lacre Sextavado</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Robustez maxima, seguranca industrial</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">5,0 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacre%20Sextavado%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20ZPino%20Bolt%20Seal%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/zpino-bolt-seal.png" alt="ZPino Bolt Seal" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">ZPino Bolt Seal</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Alta seguranca para containers</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20ZPino%20Bolt%20Seal%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Zlock%20Manivela%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/zlock-manivela.png" alt="Zlock Manivela" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Zlock Manivela</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Fechamento pratico, resistente</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Zlock%20Manivela%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacre%20Chumbo%20Sinete%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20met%C3%A1licos/lacre-chumbo-sinete.png" alt="Lacre Chumbo Sinete" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Lacre Chumbo Sinete</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Alta seguranca, uso fiscal</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacre%20Chumbo%20Sinete%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+      </table>
+    </td>
+  </tr>
 
-  modal.style.display = 'flex';
-  sessionStorage.setItem(MODAL_KEY, 'true');
+  <!-- ABRACADEIRAS -->
+  <tr>
+    <td style="padding:0 16px 0 16px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+        <tr>
+          <td style="background:#1F4E79;padding:10px 16px;border-radius:6px 6px 0 0;">
+            <p style="color:#FFD700;font-size:15px;font-weight:700;margin:0;">Abracadeiras</p>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e0e8f4;border-top:none;border-radius:0 0 6px 6px;">
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Abracadeira%20Nylon%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20de%20Nylon%20%E2%80%94%20Padr%C3%A3o.png" alt="Abracadeira Nylon" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Abracadeira Nylon</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Alta resistencia, diversas medidas</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Abracadeira%20Nylon%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Abracadeira%20Metalica%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20Met%C3%A1lica.png" alt="Abracadeira Metalica" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Abracadeira Metalica</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Resistencia maxima, uso industrial</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,9 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Abracadeira%20Metalica%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Abracadeira%20Identificavel%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Abra%C3%A7adeiras/Abra%C3%A7adeira%20Identific%C3%A1vel.png" alt="Abracadeira Identificavel" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Abracadeira Identificavel</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Personalize com sua marca</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Abracadeira%20Identificavel%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20ZFIX%20Base%20Adesiva%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Abra%C3%A7adeiras/ZFIX%20%E2%80%94%20Base%20Adesiva.png" alt="ZFIX Base Adesiva" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">ZFIX Base Adesiva</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Fixacao pratica para cabos</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20ZFIX%20Base%20Adesiva%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+      </table>
+    </td>
+  </tr>
 
-  // carrossel interno
-  modalInterval = setInterval(function(){
-    modalIdx = (modalIdx+1)%modalImgs.length;
-    var img = document.querySelector('.modal-img');
-    img.style.opacity=0;
-    setTimeout(function(){
-      img.src = modalImgs[modalIdx];
-      img.style.opacity=1;
-    },350);
-  }, 1800);
-}
+  <!-- LACRES PLASTICOS -->
+  <tr>
+    <td style="padding:0 16px 0 16px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+        <tr>
+          <td style="background:#1F4E79;padding:10px 16px;border-radius:6px 6px 0 0;">
+            <p style="color:#FFD700;font-size:15px;font-weight:700;margin:0;">Lacres Plasticos</p>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e0e8f4;border-top:none;border-radius:0 0 6px 6px;">
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacre%20de%20Sacola%20Zni%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/Lacre%20de%20Sacola%20%E2%80%94%20Zni.png" alt="Lacre de Sacola Zni" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Lacre de Sacola Zni</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Para lacracao de sacolas</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,9 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacre%20de%20Sacola%20Zni%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Dupla%20Trava%20DT%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/dupla-trava-dt.png" alt="Dupla Trava DT" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Dupla Trava DT</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Dupla protecao inviolavel</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Dupla%20Trava%20DT%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacre%20Ancora%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/ancora.png" alt="Lacre Ancora" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Lacre Ancora</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Seguranca em caixas e bags</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacre%20Ancora%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Anel%20Extintor%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Lacres%20Pl%C3%A1sticos/anel-extintor.png" alt="Anel Extintor" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Anel Extintor</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Normatizado para extintores</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,9 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Anel%20Extintor%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+      </table>
+    </td>
+  </tr>
 
-function closeModalCampeao(){
-  const modal = document.getElementById('modal-campeao');
-  if(!modal) return;
+  <!-- CADEADOS -->
+  <tr>
+    <td style="padding:0 16px 0 16px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+        <tr>
+          <td style="background:#1F4E79;padding:10px 16px;border-radius:6px 6px 0 0;">
+            <p style="color:#FFD700;font-size:15px;font-weight:700;margin:0;">Cadeados</p>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e0e8f4;border-top:none;border-radius:0 0 6px 6px;">
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Cadeado%20Latao%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Cadeados/Cadeado%20Tradicional%20(lat%C3%A3o).png" alt="Cadeado Latao" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Cadeado Latao</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Seguranca tradicional, varias medidas</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Cadeado%20Latao%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Cadeado%20Tetra%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Cadeados/Cadeado%20Tetra.png" alt="Cadeado Tetra" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Cadeado Tetra</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Alta seguranca, chave tetra</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,9 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Cadeado%20Tetra%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Cadeado%20Bloqueio%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Cadeados/Cadeado%20Bloqueio.png" alt="Cadeado Bloqueio" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Cadeado Bloqueio</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Ideal para bloqueio de energia</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Cadeado%20Bloqueio%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Cadeado%20Colorido%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Cadeados/Cadeado%20Colorido.png" alt="Cadeado Colorido" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Cadeado Colorido</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Identificacao visual facilitada</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Cadeado%20Colorido%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+      </table>
+    </td>
+  </tr>
 
-  modal.style.display = 'none';
-  clearInterval(modalInterval);
-  sessionStorage.setItem(MODAL_KEY, 'true');
-}
+  <!-- FITAS -->
+  <tr>
+    <td style="padding:0 16px 0 16px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+        <tr>
+          <td style="background:#1F4E79;padding:10px 16px;border-radius:6px 6px 0 0;">
+            <p style="color:#FFD700;font-size:15px;font-weight:700;margin:0;">Fitas</p>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e0e8f4;border-top:none;border-radius:0 0 6px 6px;">
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Fita%20Adesiva%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Fitas/Fita%20adesiva.png" alt="Fita Adesiva" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Fita Adesiva</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Alta aderencia, uso industrial</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Fita%20Adesiva%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Fita%20Isolante%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Fitas/Fita%20isolante.png" alt="Fita Isolante" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Fita Isolante</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Isolamento eletrico seguro</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Fita%20Isolante%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Fita%20Crepe%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Fitas/Fita%20crepe.png" alt="Fita Crepe" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Fita Crepe</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Ideal para pinturas e acabamentos</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Fita%20Crepe%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Fita%20Zebrada%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Fitas/Fita%20zebrada.png" alt="Fita Zebrada" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Fita Zebrada</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Sinalizacao e seguranca</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Fita%20Zebrada%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+      </table>
+    </td>
+  </tr>
 
-document.getElementById('close-modal').onclick = closeModalCampeao;
+  <!-- MALOTES, PASTAS E BOLSAS -->
+  <tr>
+    <td style="padding:0 16px 0 16px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+        <tr>
+          <td style="background:#1F4E79;padding:10px 16px;border-radius:6px 6px 0 0;">
+            <p style="color:#FFD700;font-size:15px;font-weight:700;margin:0;">Malotes, Pastas e Bolsas</p>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e0e8f4;border-top:none;border-radius:0 0 6px 6px;">
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Malote%20Correio%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Malotes%2C%20pastas%20e%20bolsas/Malote%20Correio.png" alt="Malote Correio" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Malote Correio</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Transporte seguro de documentos</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Malote%20Correio%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Bolsa%20com%20Ziper%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Malotes%2C%20pastas%20e%20bolsas/Bolsa%20com%20Z%C3%ADper%20(estilo%20Sacola).png" alt="Bolsa com Ziper" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Bolsa com Ziper</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Estilo sacola, pratica e segura</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Bolsa%20com%20Ziper%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Pasta%20para%20Documentos%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Malotes%2C%20pastas%20e%20bolsas/Pasta%20para%20Documentos.png" alt="Pasta para Documentos" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Pasta para Documentos</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Organizacao e protecao</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Pasta%20para%20Documentos%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Urna%20em%20Lona%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Malotes%2C%20pastas%20e%20bolsas/Urna%20em%20Lona.png" alt="Urna em Lona" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Urna em Lona</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Ideal para coletas e sorteios</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Urna%20em%20Lona%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+      </table>
+    </td>
+  </tr>
 
-// ===== ABRE O MODAL =====
-setTimeout(showModalCampeao, 4000); // abre após 4s
-</script>
+  <!-- MAQUINAS -->
+  <tr>
+    <td style="padding:0 16px 0 16px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+        <tr>
+          <td style="background:#1F4E79;padding:10px 16px;border-radius:6px 6px 0 0;">
+            <p style="color:#FFD700;font-size:15px;font-weight:700;margin:0;">Maquinas</p>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e0e8f4;border-top:none;border-radius:0 0 6px 6px;">
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacradora%20Quadrada%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/M%C3%A1quinas/M%C3%A1quina%20lacradora%20quadrada.png" alt="Lacradora Quadrada" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Lacradora Quadrada</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Alta performance, robusta</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacradora%20Quadrada%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Maquina%20Seladora%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/M%C3%A1quinas/M%C3%A1quina%20seladora.png" alt="Maquina Seladora" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Maquina Seladora</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Selagem rapida e segura</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,9 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Maquina%20Seladora%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+    <tr style="border-top:1px solid #e0e8f4;"><td width="50%" valign="top" style="padding:14px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacradora%20Redonda%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/M%C3%A1quinas/M%C3%A1quina%20lacradora%20redonda.png" alt="Lacradora Redonda" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Lacradora Redonda</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Design compacto, eficiente</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Lacradora%20Redonda%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td><td width="50%" valign="top" style="padding:14px;border-left:1px solid #e0e8f4;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Refil%20de%20Selagem%20-%20codigo%20ZENITH2026" target="_blank" style="display:block;text-decoration:none;">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/M%C3%A1quinas/Refil%20de%20selagem.png" alt="Refil de Selagem" width="220" height="130"
+          style="display:block;width:100%;max-width:220px;height:130px;object-fit:contain;background:#f4f7fb;border:0;border-radius:6px;">
+      </a>
+      <p style="font-size:14px;font-weight:700;color:#1F4E79;margin:10px 0 4px 0;">Refil de Selagem</p>
+      <p style="font-size:12px;color:#666;margin:0 0 6px 0;">Refil para maquinas de selagem</p>
+      <p style="font-size:12px;color:#e6b800;font-weight:700;margin:0 0 10px 0;">4,8 estrelas</p>
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20Refil%20de%20Selagem%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;">Cotar Agora</a>
+    </td></tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- CATALOGO -->
+  <tr>
+    <td align="center" style="padding:32px 32px 8px 32px;">
+      <p style="font-size:16px;font-weight:700;color:#1F4E79;margin:0 0 12px 0;text-align:center;">
+        Conheca todos os nossos 500+ produtos no catalogo completo
+      </p>
+      <a href="https://zenith-lacres-catalogo.netlify.app/Imagens/Cat%C3%A1logo%20ZENITH%20capa.jpg" target="_blank">
+        <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Cat%C3%A1logo%20ZENITH%20capa.jpg" alt="Catalogo Zenith" width="400"
+          style="display:block;border:0;width:100%;max-width:400px;margin:0 auto 16px auto;border-radius:8px;">
+      </a>
+      <a href="https://zenith-lacres-catalogo.netlify.app/Imagens/Cat%C3%A1logo%20ZENITH.pdf" target="_blank"
+        style="display:inline-block;background:#1F4E79;color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;padding:12px 28px;border-radius:6px;">
+        Acessar Catalogo Completo (PDF)
+      </a>
+    </td>
+  </tr>
+
+  <!-- MOTIVOS -->
+  <tr>
+    <td style="padding:28px 32px 8px 32px;">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f0f6ff;border-radius:8px;padding:4px;">
+        <tr>
+          <td align="center" style="padding:16px;">
+            <p style="font-size:16px;font-weight:700;color:#1F4E79;margin:0 0 14px 0;text-align:center;">Por que escolher a Zenith?</p>
+            <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+              <tr><td style="padding:4px 0;font-size:13px;color:#333;"> Entrega rapida em todo Brasil</td></tr>
+              <tr><td style="padding:4px 0;font-size:13px;color:#333;"> Seguranca maxima certificada</td></tr>
+              <tr><td style="padding:4px 0;font-size:13px;color:#333;"> Atendimento consultivo e agil</td></tr>
+              <tr><td style="padding:4px 0;font-size:13px;color:#333;"> Lider nacional em lacres</td></tr>
+              <tr><td style="padding:4px 0;font-size:13px;color:#333;"> Condicoes exclusivas para clientes</td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- BOTAO WPP FINAL -->
+  <tr>
+    <td align="center" style="padding:24px 32px 8px 32px;">
+      <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20produtos%20Zenith%20-%20codigo%20ZENITH2026" target="_blank"
+        style="display:inline-block;background:#25D366;color:#ffffff;text-decoration:none;font-weight:700;font-size:16px;padding:14px 36px;border-radius:8px;">
+        Cotar pelo WhatsApp
+      </a>
+    </td>
+  </tr>
+
+  <!-- RODAPE -->
+  <tr>
+    <td align="center" style="background:#1F4E79;padding:24px 32px;margin-top:32px;">
+      <img src="https://zenith-lacres-catalogo.netlify.app/Imagens/Logo%20zenith.png" alt="Zenith Lacres" width="120"
+        style="display:block;border:0;margin:0 auto 12px auto;filter:brightness(0) invert(1);">
+      <p style="color:#ffffff;font-size:13px;margin:0 0 8px 0;text-align:center;">
+        Zenith Lacres - Seguranca, padronizacao e confianca
+      </p>
+      <p style="color:#cce0ff;font-size:12px;margin:0 0 12px 0;text-align:center;">
+        R. Constantino Fusco, 256 - Vila Formosa, Sao Paulo - SP, 03383-070
+      </p>
+      <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+        <tr>
+          <td style="padding:0 8px;">
+            <a href="https://www.zenithlacres.com.br" target="_blank" style="color:#FFD700;text-decoration:none;font-size:13px;font-weight:700;">Site</a>
+          </td>
+          <td style="color:#cce0ff;font-size:13px;">|</td>
+          <td style="padding:0 8px;">
+            <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ola%2C%20quero%20cotar%20produtos%20Zenith%20-%20codigo%20ZENITH2026" target="_blank" style="color:#FFD700;text-decoration:none;font-size:13px;font-weight:700;">WhatsApp</a>
+          </td>
+          <td style="color:#cce0ff;font-size:13px;">|</td>
+          <td style="padding:0 8px;">
+            <a href="https://zenith-lacres-catalogo.netlify.app/Imagens/Cat%C3%A1logo%20ZENITH.pdf" target="_blank" style="color:#FFD700;text-decoration:none;font-size:13px;font-weight:700;">Catalogo PDF</a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+</table>
+
+</td></tr>
+</table>
+
 </body>
 </html>
