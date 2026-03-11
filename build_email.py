@@ -89,10 +89,10 @@ def destaque_card(nome, desc, img, url):
     return f"""<td width="50%" valign="top" style="padding:12px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #d6e4f7;">
         <tr>
-          <td align="center" style="background:#f4f7fb;padding:10px;">
+          <td align="center" valign="middle" height="160" style="background:#f4f7fb;padding:8px;height:160px;">
             <a href="{url}" target="_blank">
-              <img src="{img}" width="200" alt="{nome}"
-                style="display:block;border:0;width:100%;max-width:200px;height:120px;">
+              <img src="{img}" alt="{nome}"
+                style="display:block;border:0;width:auto;max-width:180px;max-height:144px;height:auto;margin:0 auto;">
             </a>
           </td>
         </tr>
@@ -109,10 +109,16 @@ def destaque_card(nome, desc, img, url):
 def produto_card(nome, desc, img, url, first=False):
     bl = "" if first else "border-left:1px solid #e0e8f4;"
     return f"""<td width="50%" valign="top" style="padding:12px;{bl}">
-      <a href="{url}" target="_blank">
-        <img src="{img}" width="220" alt="{nome}"
-          style="display:block;border:0;width:100%;max-width:220px;height:120px;background:#f4f7fb;">
-      </a>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td align="center" valign="middle" height="160" style="background:#f4f7fb;padding:8px;height:160px;">
+            <a href="{url}" target="_blank">
+              <img src="{img}" alt="{nome}"
+                style="display:block;border:0;width:auto;max-width:200px;max-height:144px;height:auto;margin:0 auto;">
+            </a>
+          </td>
+        </tr>
+      </table>
       <p style="font-size:13px;font-weight:700;color:#1F4E79;margin:8px 0 3px 0;line-height:1.4;">{nome}</p>
       <p style="font-size:12px;color:#666;margin:0 0 8px 0;line-height:1.5;">{desc}</p>
       <a href="{url}" target="_blank" style="{BTN_BLUE}">Solicitar cotacao</a>
