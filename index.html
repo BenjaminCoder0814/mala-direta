@@ -44,17 +44,33 @@ body{
   box-shadow:0 2px 8px #0002;
   min-width:0;
   transition:top .4s, box-shadow .3s;
+  position:fixed;
+}
+.header-wpp{
+  position:absolute;
+  top:50%;
+  right:10px;
+  transform:translateY(-50%);
+  z-index:1001;
+}
+.header-wpp img{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  box-shadow:0 2px 12px #25D36688;
+  display:block;
+  margin:0;
 }
 .header.hide{
   top:-120px;
 }
 body{
-  padding-top:95px;
+  padding-top:108px;
 }
 .header img{
-  height:68px;
+  height:80px;
   width:auto;
-  max-width:260px;
+  max-width:300px;
   object-fit:contain;
   margin-bottom:4px;
 }
@@ -305,20 +321,6 @@ footer a{
 footer a:hover{ color:#fff; }
 
 
-.whatsapp-float{
-  position:fixed;
-  top:32px;
-  right:32px;
-  z-index:10000;
-}
-.whatsapp-float img{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  box-shadow:0 4px 18px #25D36655;
-}
-
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -558,6 +560,9 @@ footer a:hover{ color:#fff; }
 
   
   <div class="header">
+    <a class="header-wpp" href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1,%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">
+      <img src="https://mala-direta.netlify.app/Imagens/icone%20wpp.png" alt="WhatsApp">
+    </a>
     <img src="https://mala-direta.netlify.app/Imagens/Logo%20zenith.png" alt="Zenith Lacres" width="180" style="display:block;border:0;">
     <nav class="menu">
       <a href="#metalico">Metálicos</a>
@@ -754,11 +759,7 @@ Conheça todos os nossos <span style="color:#1F4E79;font-weight:700;">500+ produ
 </div>
 
 
-<div class="whatsapp-float">
-  <a href="https://api.whatsapp.com/send?phone=551120240427&text=Olá,%20quero%20cotar%20produtos%20Zenith%20com%20o%20código%20ZENITH2026" target="_blank">
-    <img src="https://mala-direta.netlify.app/Imagens/icone%20wpp.png" alt="WhatsApp Zenith" width="48" style="display:block;border:0;">
-  </a>
-</div>
+
 
 
 <div id="modal-promo" style="display:none;">
