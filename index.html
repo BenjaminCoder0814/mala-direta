@@ -48,12 +48,12 @@ body{
   top:-120px;
 }
 body{
-  padding-top:80px;
+  padding-top:95px;
 }
 .header img{
-  height:50px;
+  height:68px;
   width:auto;
-  max-width:210px;
+  max-width:260px;
   object-fit:contain;
   margin-bottom:4px;
 }
@@ -950,10 +950,8 @@ function closeModalCampeao(){
 
 document.getElementById('close-modal').onclick = closeModalCampeao;
 
-// ===== ABRE O MODAL APENAS UMA VEZ =====
-if(!sessionStorage.getItem(MODAL_KEY)){
-  setTimeout(showModalCampeao, 4000); // abre após 4s
-}
+// ===== ABRE O MODAL =====
+setTimeout(showModalCampeao, 4000); // abre após 4s
 </script>
 </body>
 </html>
