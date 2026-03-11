@@ -886,6 +886,7 @@ function moveCarousel(id,dir){
   }else{
     el.insertBefore(cards[cards.length-1],cards[0]);
   }
+  el.scrollLeft = 0;
 }
 function autoCarousel(id){
   setInterval(()=>moveCarousel(id,1),7000);
