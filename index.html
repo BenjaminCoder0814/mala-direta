@@ -307,10 +307,17 @@ footer a:hover{ color:#fff; }
 
 
 .whatsapp-float{
-  position:fixed;
-  bottom:32px;
-  right:32px;
-  z-index:10000;
+  position:sticky;
+  bottom:20px;
+  text-align:right;
+  padding-right:16px;
+  margin-top:-74px;
+  z-index:9999;
+  pointer-events:none;
+}
+.whatsapp-float a{
+  pointer-events:all;
+  display:inline-block;
 }
 .whatsapp-float img{
   width:62px;
@@ -753,17 +760,15 @@ Conheça todos os nossos <span style="color:#1F4E79;font-weight:700;">500+ produ
     Endereço: R. Constantino Fusco, 256 - Vila Formosa, São Paulo - SP, 03383-070
   </footer>
 
+  <div class="whatsapp-float">
+    <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1,%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">
+      <img src="https://mala-direta.netlify.app/Imagens/icone%20wpp.png" alt="WhatsApp Zenith">
+    </a>
+  </div>
+
 </div>
 
 
-
-
-
-<div class="whatsapp-float">
-  <a href="https://api.whatsapp.com/send?phone=551120240427&text=Ol%C3%A1,%20quero%20cotar%20produtos%20Zenith%20com%20o%20c%C3%B3digo%20ZENITH2026" target="_blank">
-    <img src="https://mala-direta.netlify.app/Imagens/icone%20wpp.png" alt="WhatsApp Zenith">
-  </a>
-</div>
 
 <div id="modal-promo" style="display:none;">
   <div class="modal-content">
