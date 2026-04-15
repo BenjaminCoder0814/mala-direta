@@ -1,19 +1,4 @@
 import urllib.parse
-import base64, io
-from PIL import Image as _Img
-
-# ── Logo embutido como base64 (funciona local + email sem depender de Netlify) ──
-def _logo_b64(path, display_w):
-    img = _Img.open(path).convert("RGBA")
-    h = int(display_w * 2 * img.size[1] / img.size[0])
-    img = img.resize((display_w * 2, h), _Img.LANCZOS)
-    buf = io.BytesIO()
-    img.save(buf, format="PNG", optimize=True)
-    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
-
-_LOGO_PATH   = r"C:\Users\User\Downloads\MALA DIRETA\Imagens\logo.png"
-LOGO_HEADER  = _logo_b64(_LOGO_PATH, 160)   # 160px display → 320px @2x
-LOGO_FOOTER  = _logo_b64(_LOGO_PATH, 120)   # 120px display → 240px @2x
 
 BASE = "https://zenith-lacres-catalogo.netlify.app/Imagens"
 SITE = "https://www.zenithlacres.com.br"
@@ -343,7 +328,7 @@ html = f"""<!DOCTYPE html>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td align="center">
-            <img src="{LOGO_HEADER}" alt="Zenith Lacres" width="200"
+            <img src="{BASE}/logo.png" alt="Zenith Lacres" width="200"
               style="display:block;border:0;width:200px;height:auto;margin:0 auto;">
           </td>
         </tr>
@@ -431,7 +416,7 @@ html = f"""<!DOCTYPE html>
   </tr>
   <tr>
     <td align="center" style="background:#1F4E79;padding:24px 32px;">
-      <img src="{LOGO_FOOTER}" alt="Zenith Lacres" width="120"
+      <img src="{BASE}/logo.png" alt="Zenith Lacres" width="120"
         style="display:block;border:0;margin:0 auto 12px auto;width:120px;height:auto;">
       <p style="color:#ffffff;font-size:13px;margin:0 0 6px 0;text-align:center;line-height:1.5;">
         Zenith Lacres - Seguranca, padronizacao e confianca
