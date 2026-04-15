@@ -328,8 +328,8 @@ html = f"""<!DOCTYPE html>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td align="left" valign="middle">
-            <img src="{BASE}/Logo%20zenith.png" alt="Zenith Lacres" width="160" height="45"
-              style="display:block;border:0;width:160px;height:45px;filter:brightness(0) invert(1);">
+            <img src="{BASE}/logo.png" alt="Zenith Lacres" width="160" height="90"
+              style="display:block;border:0;width:160px;height:auto;filter:brightness(0) invert(1);">
             <p style="color:#cce0ff;font-size:12px;margin:6px 0 0 0;line-height:1.4;">Catalogo Industrial 2026 &bull; Lacres &bull; Abracadeiras &bull; Cadeados</p>
           </td>
           <td align="right" valign="middle">
@@ -407,8 +407,8 @@ html = f"""<!DOCTYPE html>
   </tr>
   <tr>
     <td align="center" style="background:#1F4E79;padding:24px 32px;">
-      <img src="{BASE}/Logo%20zenith.png" alt="Zenith Lacres" width="120" height="34"
-        style="display:block;border:0;margin:0 auto 12px auto;filter:brightness(0) invert(1);">
+      <img src="{BASE}/logo.png" alt="Zenith Lacres" width="120" height="68"
+        style="display:block;border:0;margin:0 auto 12px auto;width:120px;height:auto;filter:brightness(0) invert(1);">
       <p style="color:#ffffff;font-size:13px;margin:0 0 6px 0;text-align:center;line-height:1.5;">
         Zenith Lacres - Seguranca, padronizacao e confianca
       </p>
