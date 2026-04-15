@@ -1,4 +1,19 @@
 import urllib.parse
+import base64, io
+from PIL import Image as _Img
+
+# ── Logo embutido como base64 (funciona local + email sem depender de Netlify) ──
+def _logo_b64(path, display_w):
+    img = _Img.open(path).convert("RGBA")
+    h = int(display_w * 2 * img.size[1] / img.size[0])
+    img = img.resize((display_w * 2, h), _Img.LANCZOS)
+    buf = io.BytesIO()
+    img.save(buf, format="PNG", optimize=True)
+    return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+
+_LOGO_PATH   = r"C:\Users\User\Downloads\MALA DIRETA\Imagens\logo.png"
+LOGO_HEADER  = _logo_b64(_LOGO_PATH, 160)   # 160px display → 320px @2x
+LOGO_FOOTER  = _logo_b64(_LOGO_PATH, 120)   # 120px display → 240px @2x
 
 BASE = "https://zenith-lacres-catalogo.netlify.app/Imagens"
 SITE = "https://www.zenithlacres.com.br"
@@ -324,19 +339,12 @@ html = f"""<!DOCTYPE html>
 
   <!-- HEADER -->
   <tr>
-    <td style="background:#1F4E79;padding:20px 30px;">
+    <td style="background:#1F4E79;padding:32px 30px 28px 30px;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td align="left" valign="middle">
-            <img src="{BASE}/logo.png" alt="Zenith Lacres" width="160" height="90"
-              style="display:block;border:0;width:160px;height:auto;filter:brightness(0) invert(1);">
-            <p style="color:#cce0ff;font-size:12px;margin:6px 0 0 0;line-height:1.4;">Catalogo Industrial 2026 &bull; Lacres &bull; Abracadeiras &bull; Cadeados</p>
-          </td>
-          <td align="right" valign="middle">
-            <a href="{WPP_GERAL}" target="_blank"
-              style="background:#25D366;color:#ffffff;padding:10px 18px;font-size:14px;text-decoration:none;font-weight:bold;display:inline-block;">
-              WhatsApp
-            </a>
+          <td align="center">
+            <img src="{LOGO_HEADER}" alt="Zenith Lacres" width="200"
+              style="display:block;border:0;width:200px;height:auto;margin:0 auto;">
           </td>
         </tr>
       </table>
@@ -359,16 +367,32 @@ html = f"""<!DOCTYPE html>
 
   <!-- PROPOSTA DE VALOR -->
   <tr>
-    <td align="center" style="padding:28px 32px 8px 32px;">
-      <p style="font-size:21px;font-weight:700;color:#1F4E79;margin:0 0 10px 0;text-align:center;line-height:1.3;">Seguranca logistica para a sua operacao</p>
-      <p style="font-size:14px;color:#444;margin:0;text-align:center;line-height:1.6;">
-        Lacres, abracadeiras, cadeados e solucoes completas para transporte e industria.<br>
-        Informe o codigo <strong style="color:#1F4E79;">#ZENITH2026</strong> e receba condicoes especiais.
+    <td align="center" style="padding:40px 40px 6px 40px;">
+      <p style="font-size:28px;font-weight:700;color:#1F4E79;margin:0 0 16px 0;text-align:center;line-height:1.25;">Cat&aacute;logo Zenith 2026<br>atualizado com novidades!</p>
+      <p style="font-size:15px;color:#555;margin:0;text-align:center;line-height:1.8;">
+        Lacres, abracadeiras, cadeados e solucoes completas<br>para transporte, industria e logistica.<br><br>
+        Use o codigo <strong style="color:#1F4E79;font-size:16px;">#ZENITH2026</strong> e receba <strong style="color:#1F4E79;">condicoes especiais</strong>.
       </p>
     </td>
   </tr>
 
-  {cta_row("Receber tabela de precos", WPP_GERAL)}
+  <tr>
+    <td align="center" style="padding:28px 40px 36px 40px;">
+      <a href="{WPP_GERAL}" target="_blank"
+        style="background:#25D366;color:#ffffff;text-decoration:none;font-weight:bold;font-size:16px;padding:16px 48px;display:inline-block;letter-spacing:0.3px;">
+        Receber tabela de pre&ccedil;os &rarr;
+      </a>
+    </td>
+  </tr>
+
+  <!-- DIVISOR -->
+  <tr>
+    <td style="padding:0 32px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td height="1" style="background:#e0e8f4;font-size:0;line-height:0;">&nbsp;</td></tr>
+      </table>
+    </td>
+  </tr>
 
   {estoque_block}
 
@@ -407,8 +431,8 @@ html = f"""<!DOCTYPE html>
   </tr>
   <tr>
     <td align="center" style="background:#1F4E79;padding:24px 32px;">
-      <img src="{BASE}/logo.png" alt="Zenith Lacres" width="120" height="68"
-        style="display:block;border:0;margin:0 auto 12px auto;width:120px;height:auto;filter:brightness(0) invert(1);">
+      <img src="{LOGO_FOOTER}" alt="Zenith Lacres" width="120"
+        style="display:block;border:0;margin:0 auto 12px auto;width:120px;height:auto;">
       <p style="color:#ffffff;font-size:13px;margin:0 0 6px 0;text-align:center;line-height:1.5;">
         Zenith Lacres - Seguranca, padronizacao e confianca
       </p>
