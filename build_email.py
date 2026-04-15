@@ -17,6 +17,8 @@ WPP_CAD      = wpp("Ola, tenho interesse em cadeados Zenith. Codigo ZENITH2026")
 WPP_FITA     = wpp("Ola, tenho interesse em fitas Zenith. Codigo ZENITH2026")
 WPP_MAL      = wpp("Ola, tenho interesse em malotes e pastas Zenith. Codigo ZENITH2026")
 WPP_MAQ      = wpp("Ola, tenho interesse em maquinas lacradoras Zenith. Codigo ZENITH2026")
+WPP_ESTOQUE  = wpp("Ola! Recebi o email da Zenith e quero verificar meu estoque para abril/maio. Pode me ajudar? Codigo ZENITH2026")
+WPP_CATALOGO = wpp("Ola! Vi que tem novidades no catalogo Zenith 2026 e quero conhecer os novos itens. Codigo ZENITH2026")
 
 # Produto: (nome, desc, img_url, wpp_url)
 DESTAQUES = [
@@ -151,6 +153,73 @@ def section_block(titulo, wpp_url, produtos):
   {cta_row(cta_label, wpp_url)}"""
 
 # ─────────────────────────────────────────────────────────────
+# BLOCO ALERTA ESTOQUE ABRIL/MAIO
+# ─────────────────────────────────────────────────────────────
+estoque_block = f"""
+  <!-- ALERTA ESTOQUE ABRIL/MAIO -->
+  <tr>
+    <td style="padding:16px 16px 0 16px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#fff8e6;border:2px solid #e8a000;">
+        <tr>
+          <td style="background:#e8a000;padding:12px 20px;">
+            <p style="margin:0;font-size:13px;font-weight:700;color:#ffffff;text-align:center;letter-spacing:1px;">&#9888; ABRIL &amp; MAIO &mdash; MESES DE ALTA DEMANDA &#9888;</p>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="padding:24px 32px 28px 32px;">
+            <p style="font-size:22px;font-weight:700;color:#b35c00;margin:0 0 14px 0;text-align:center;line-height:1.3;">Seu estoque est&aacute; preparado<br>para os pr&oacute;ximos meses?</p>
+            <p style="font-size:14px;color:#555;margin:0 0 10px 0;text-align:center;line-height:1.8;">
+              Quem deixa pra verificar em cima da hora acaba pagando mais caro<br>ou &mdash; pior &mdash; <strong style="color:#b35c00;">para a opera&ccedil;&atilde;o por falta de material</strong>.
+            </p>
+            <p style="font-size:14px;color:#555;margin:0 0 22px 0;text-align:center;line-height:1.8;">
+              Me conta como est&aacute; o seu estoque agora &mdash; assim a gente j&aacute;<br>
+              te indica o que priorizar e garante prazo de entrega dentro do seu ritmo.
+            </p>
+            <a href="{WPP_ESTOQUE}" target="_blank"
+              style="background:#e8a000;color:#ffffff;text-decoration:none;font-weight:bold;font-size:15px;padding:14px 36px;display:inline-block;">
+              Verificar meu estoque com a Zenith
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>"""
+
+# ─────────────────────────────────────────────────────────────
+# BLOCO NOVIDADES NO CATALOGO
+# ─────────────────────────────────────────────────────────────
+novidades_block = f"""
+  <!-- NOVIDADES CATALOGO 2026 -->
+  <tr>
+    <td style="padding:16px 16px 0 16px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f0f6ff;border:2px solid #1F4E79;">
+        <tr>
+          <td style="background:#1F4E79;padding:12px 20px;">
+            <p style="margin:0;font-size:13px;font-weight:700;color:#FFD700;text-align:center;letter-spacing:1px;">&#9733; CAT&Aacute;LOGO ZENITH 2026 &mdash; NOVOS ITENS DISPON&Iacute;VEIS &#9733;</p>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="padding:24px 32px 28px 32px;">
+            <p style="font-size:22px;font-weight:700;color:#1F4E79;margin:0 0 14px 0;text-align:center;line-height:1.3;">Tem coisa nova no cat&aacute;logo<br>que voc&ecirc; ainda n&atilde;o viu</p>
+            <p style="font-size:14px;color:#555;margin:0 0 10px 0;text-align:center;line-height:1.8;">
+              Adicionamos itens que nossos clientes pediam h&aacute; tempos &mdash; e que<br>
+              j&aacute; est&atilde;o fazendo muita diferen&ccedil;a na opera&ccedil;&atilde;o de quem experimentou.
+            </p>
+            <p style="font-size:14px;color:#555;margin:0 0 22px 0;text-align:center;line-height:1.8;">
+              D&aacute; uma olhada &mdash; pode ter exatamente o que falta<br>
+              pra fechar o ciclo da sua opera&ccedil;&atilde;o com mais efici&ecirc;ncia.
+            </p>
+            <a href="{WPP_CATALOGO}" target="_blank"
+              style="background:#1F4E79;color:#ffffff;text-decoration:none;font-weight:bold;font-size:15px;padding:14px 36px;display:inline-block;">
+              Ver os novos itens do cat&aacute;logo
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>"""
+
+# ─────────────────────────────────────────────────────────────
 # DESTAQUE SECTION (2+2)
 # ─────────────────────────────────────────────────────────────
 dest_row1 = "".join(destaque_card(*d) for d in DESTAQUES[:2])
@@ -246,7 +315,7 @@ html = f"""<!DOCTYPE html>
 <body style="margin:0;padding:0;background:#e6f0fa;font-family:Arial,Helvetica,sans-serif;">
 
 <!-- PREHEADER INVISIVEL -->
-<span style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Catalogo Zenith 2026 - Solucoes profissionais de lacracao e seguranca logistica para sua operacao.</span>
+<span style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Abril e maio sao meses de alta demanda - verifique seu estoque agora e confira os novos itens do catalogo Zenith 2026.</span>
 
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#e6f0fa;">
 <tr><td align="center" style="padding:20px 0;">
@@ -300,6 +369,10 @@ html = f"""<!DOCTYPE html>
   </tr>
 
   {cta_row("Receber tabela de precos", WPP_GERAL)}
+
+  {estoque_block}
+
+  {novidades_block}
 
   {all_sections}
 
